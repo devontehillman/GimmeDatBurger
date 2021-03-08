@@ -8,23 +8,23 @@ const connection = require('./connection.js');
 // https://en.wikipedia.org/wiki/SQL_injection
 
 const orm = {
-  selectAll(tableInput, colToSearch, valOfCol) {
+  selectAll(tableName) {
     const queryString = 'SELECT * FROM ??';
     connection.query(
       queryString,
-      [tableInput],
+      [tableName],
       (err, result) => {
         if (err) throw err;
         console.log(result);
       }
     );
   },
-  insertOne(table, whatToInstert) {
-    const queryString = 'INSERT INTO ?? VALUES ? ';
+  insertOne(table, whatToInsert1, whatToInsert2) {
+    const queryString = 'INSERT INTO ?? (burger_name, devoured) VALUES (? , ?)\;';
     console.log(queryString);
     connection.query(
       queryString,
-      [table, whatToInsert],
+      [table, whatToInsert1, whatToInsert2],
       (err, result) => {
         if (err) throw err;
         console.log(result);
@@ -32,17 +32,19 @@ const orm = {
     );
   },
   
-  updateOne(tablename, updateInfo, bugerId) {
+  updateOne(tableName, updateColumn, updateValue , burgerId) {
     const queryString =
-      'UPDATE ?? SET ? WHERE ID = ?;
+      'UPDATE ?? SET ?? = ? WHERE id = ?\;';
        console.log(queryString);
     connection.query(
       queryString,
-      [table, whatToInsert],
+      [tableName, updateColumn, updateValue, burgerId],
       (err, result) => {
         if (err) throw err;
         console.log(result);
       }
     );
   },
+};
+
 module.exports = orm;
