@@ -10,9 +10,9 @@ const burger = {
     // create(cols, vals, cb) {
     //   orm.create('burgers', cols, vals, (res) => cb(res));
     // },
-    // update(objColVals, condition, cb) {
-    //   orm.update('burgers', objColVals, condition, (res) => cb(res));
-    // },
+    update(condition, id, cb) {
+      orm.updateOne('burgers_db.burgers', 'devoured', condition, id ,(res) => cb(res));
+    },
     // delete(condition, cb) {
     //   orm.delete('burgers', condition, (res) => cb(res));
     // },
