@@ -6,11 +6,11 @@ const burger = {
     all(cb) {
       orm.selectAll('burgers_db.burgers', (res) => cb(res));
     },
-    create(burgerName, cb) {
-      orm.insertOne('burgers_db.burgers', burgerName, false, (res) => cb(res));
+    create(burgerName, callback) {
+      orm.insertOne('burgers_db.burgers', burgerName, false, (res) => callback(res));
     },
-    update(condition, id, cb) {
-      orm.updateOne('burgers_db.burgers', 'devoured', condition, id ,(res) => cb(res));
+    update(condition, id, callback) {
+      orm.updateOne('burgers_db.burgers', 'devoured', condition, id ,(res) => callback(res));
     },
     // delete(condition, cb) {
     //   orm.delete('burgers', condition, (res) => cb(res));

@@ -29,28 +29,22 @@ router.get('/', (req, res) => {
       condition = true
     }
     
-    burger.update(condition, id)
-    res.end()
-    // burger.update(
-    //   {
-    //     devoured: req.body.devoured,
-    //   },
-    //   condition,
-      // (result) => {
-      //   if (result.changedRows === 0) {
-      //     // If no rows were changed, then the ID must not exist, so 404
-      //     return res.status(404).end();
-      //   }
-      //   res.status(200).end();
-      // }
-    //);
+    burger.update(condition, id,
+      (result) => {
+        if (result.changedRows === 0) {
+          // If no rows were changed, then the ID must not exist, so 404
+          return res.status(404).end();
+        }
+        res.status(200).end();
+      }
+    );
   });
   
   router.post('/api/burgers', (req, res)=>{
-    burger.create(req.body.burgerName),(result) => {
+    burger.create(req.body.burgerName, (result) => {
+    console.log('made it passes contoller')
     res.json({ id: result.insertId });
-    res.end();
-    };
+    });
     
 
   })
