@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             method: 'PUT',
             headers: {
               Accept: 'application/json',
-              'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
             },
   
             // make sure to serialize the JSON body
@@ -42,4 +42,36 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
       });
     }
+  // CREATE
+  const createburgerBtn = document.getElementById('create-form');
+
+  if (createburgerBtn) {
+    createburgerBtn.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Grabs the value of the textarea that goes by the name, "quote"
+      const newburger = {
+        burgerName: document.getElementById('ca').value.trim(),
+      };
+      console.log(newburger)
+      // Send POST request to create a new quote
+      fetch('/api/burgers', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+
+        // make sure to serialize the JSON body
+        body: JSON.stringify(newburger),
+      }).then(() => {
+        // Empty the form
+        document.getElementById('ca').value = '';
+        // Reload the page so the user can see the new quote
+        console.log('Created a new burger!');
+        location.reload();
+      });
+    });
+  }
+
 })

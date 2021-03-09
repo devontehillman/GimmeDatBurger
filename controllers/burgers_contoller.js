@@ -21,11 +21,14 @@ router.get('/', (req, res) => {
   router.put('/api/burgers/:id', (req, res) => {
     const id = req.params.id;
     let condition = req.body.devoured
+
+    console.log(condition);
     if (condition === 'true') {
-    condition = false
+      condition = false
     }else{
       condition = true
     }
+    
     burger.update(condition, id)
     res.end()
     // burger.update(
@@ -33,14 +36,25 @@ router.get('/', (req, res) => {
     //     devoured: req.body.devoured,
     //   },
     //   condition,
-    //   (result) => {
-    //     if (result.changedRows === 0) {
-    //       // If no rows were changed, then the ID must not exist, so 404
-    //       return res.status(404).end();
-    //     }
-    //     res.status(200).end();
-    //   }
-    // );
+      // (result) => {
+      //   if (result.changedRows === 0) {
+      //     // If no rows were changed, then the ID must not exist, so 404
+      //     return res.status(404).end();
+      //   }
+      //   res.status(200).end();
+      // }
+    //);
   });
+  
+  router.post('/api/burgers', (req, res)=>{
+    burger.create(req.body.burgerName),(result) => {
+    res.json({ id: result.insertId });
+    res.end();
+    };
+    
+
+  })
+  
+  router.post('',);
 
 module.exports = router;

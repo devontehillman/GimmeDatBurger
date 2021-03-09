@@ -6,10 +6,9 @@ const burger = {
     all(cb) {
       orm.selectAll('burgers_db.burgers', (res) => cb(res));
     },
-    // // The variables cols and vals are arrays.
-    // create(cols, vals, cb) {
-    //   orm.create('burgers', cols, vals, (res) => cb(res));
-    // },
+    create(burgerName, cb) {
+      orm.insertOne('burgers_db.burgers', burgerName, false, (res) => cb(res));
+    },
     update(condition, id, cb) {
       orm.updateOne('burgers_db.burgers', 'devoured', condition, id ,(res) => cb(res));
     },
