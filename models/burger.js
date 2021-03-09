@@ -1,7 +1,5 @@
 const orm = require('../config/orm');
 
-// this file will call orm functions to create specific input for the user
-// orm
 const burger = {
     all(cb) {
       orm.selectAll('burgers_db.burgers', (res) => cb(res));
