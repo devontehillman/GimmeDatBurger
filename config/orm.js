@@ -5,7 +5,7 @@ const connection = require('./connection.js');
 // Object Relational Mapper (ORM)
 const orm = {
   selectAll(tableName,callback) {
-    const queryString = 'SELECT * FROM ??';c
+    const queryString = 'SELECT * FROM ??';
     connection.query(
       queryString,
       [tableName],
