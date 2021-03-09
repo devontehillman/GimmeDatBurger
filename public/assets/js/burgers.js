@@ -73,4 +73,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 
-})
+  // DELETE
+  const deleteburgerBtns = document.querySelectorAll('.delete-burger');
+
+  // Set up the event listeners for each delete button
+  deleteburgerBtns.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const id = e.target.getAttribute('data-id');
+      console.log(id);
+      // Send the delete request
+      fetch(`/api/burgers/${id}`, {
+        method: 'DELETE',
+      }).then((res) => {
+        console.log(res);
+        console.log(`Deleted burger: ${id}`);
+
+        //Reload the page
+        location.reload();
+      });
+    });
+ })
+
+});

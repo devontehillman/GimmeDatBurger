@@ -12,9 +12,9 @@ const burger = {
     update(condition, id, callback) {
       orm.updateOne('burgers_db.burgers', 'devoured', condition, id ,(res) => callback(res));
     },
-    // delete(condition, cb) {
-    //   orm.delete('burgers', condition, (res) => cb(res));
-    // },
+    delete(condition, cb) {
+      orm.deleteOne('burgers_db.burgers', condition, (res) => cb(res));
+    }
   };
   
   // Export the database functions for the controller (burgersController.js).
