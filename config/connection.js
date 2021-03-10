@@ -9,11 +9,8 @@ const connection = mysql.createConnection({
   database: "burgers_db",
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error(`error connecting: ${err.stack}`);
-    return;
-  }
+connection.connect(() => {
+  
   console.log(`connected as id ${connection.threadId}`);
 });
 

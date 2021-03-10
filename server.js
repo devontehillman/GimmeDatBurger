@@ -2,7 +2,8 @@ const express = require('express');
 const orm = require('./config/orm.js');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers/burgers_contoller');
-require('dotenv').config()
+
+
 // Create an instance of the express app.
 const app = express();
 
