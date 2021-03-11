@@ -2,16 +2,16 @@ const orm = require('../config/orm');
 
 const burger = {
     all(cb) {
-      orm.selectAll('burgers_db.burgers', (res) => cb(res));
+      orm.selectAll('burgers', (res) => cb(res));
     },
     create(burgerName, callback) {
-      orm.insertOne('burgers_db.burgers', burgerName, false, (res) => callback(res));
+      orm.insertOne('burgers', burgerName, false, (res) => callback(res));
     },
     update(condition, id, callback) {
-      orm.updateOne('burgers_db.burgers', 'devoured', condition, id ,(res) => callback(res));
+      orm.updateOne('burgers', 'devoured', condition, id ,(res) => callback(res));
     },
     delete(condition, cb) {
-      orm.deleteOne('burgers_db.burgers', condition, (res) => cb(res));
+      orm.deleteOne('burgers', condition, (res) => cb(res));
     }
   };
   
