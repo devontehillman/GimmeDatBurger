@@ -17,7 +17,7 @@ Table of Contents
  * Node.js
 
 # Installation
-After cloning this repository to your local machine open the command line terminal. In the terminal run 'npm install --save' to install and the module dependencies.Next, create a .gitignore file and inside it enter config.This step is so that you don't expose your password if you choose to push up to github. Next open the config folder and enter your password to your mysql workbench. Now you can run 'node server' in the terminal to start the program. Open your web browser to localhost:8080 and the program should be started. This is a test
+After cloning this repository to your local machine open the command line terminal. In the terminal run 'npm install --save' to install and the module dependencies.Next, create a .gitignore file and inside it enter config.This step is so that you don't expose your password if you choose to push up to github. Next open the config folder and enter your password to your mysql workbench. Now you can run 'node server' in the terminal to start the program. Open your web browser to localhost:8080 and the program should be started. 
 
 # Future Improvments
 * Update UI
