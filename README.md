@@ -9,6 +9,7 @@ Table of Contents
 1. [Description](#Description)
 2. [Required Technology](#Required-Technology)
 3. [Installation](#Installation)
+4. [Future Improvments](#Future-Improvments)
 
 ![My web page](public/assets/img/webpage.png)
 
@@ -19,7 +20,7 @@ Table of Contents
 # Installation
 After cloning this repository to your local machine open the command line terminal. In the terminal run 'npm install --save' to install and the module dependencies.Next, create a .gitignore file and inside it enter config.This step is so that you don't expose your password if you choose to push up to github. Next open the config folder and enter your password to your mysql workbench. Now you can run 'node server' in the terminal to start the program. Open your web browser to localhost:8080 and the program should be started. 
 
-# Future Improvments
+# Future-Improvments
 * Update UI
 * Add description/story on site for users
 * Git ride of eat button when burger moves to devoured side
